@@ -25,18 +25,18 @@
 |---------------------|------------|--------------------------------|
 | product             | string     | null: false                    |
 | product_description | text       | null: false                    |
-| product_category    | string     | null: false                    |
-| product_status      | string     | null: false                    |
-| shipping_cost       | string     | null: false                    |
-| shipping_region     | string     | null: false                    |
-| shipping_time       | string     | null: false                    |
+| category_id         | integer    | null: false                    |
+| status_id           | integer    | null: false                    |
+| cost_id             | integer    | null: false                    |
+| prefecture_id       | integer    | null: false                    |
+| time_id             | integer    | null: false                    |
 | price               | integer    | null: false                    |
 | user                | references | null: false, foreign_key: true |
 
 ### Association
 
 * belongs_to :user
-* belongs_to :order
+* has_one :order
 
 
 ## orders table
@@ -50,15 +50,15 @@
 
 * belongs_to :user
 * belongs_to :item
-* belongs_to :address
+* has_one :address
 
 
-## address table
+## addresses table
 
 | Column             | Type       | Options                        |
 |--------------------|------------|--------------------------------|
 | postcode           | string     | null: false                    |
-| prefecture         | string     | null: false                    |
+| prefecture_id      | integer    | null: false                    |
 | city               | string     | null: false                    |
 | block              | string     | null: false                    |
 | building           | string     |                                |
