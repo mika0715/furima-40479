@@ -6,7 +6,7 @@ function cost() {
     const taxValue = Math.floor(inputValue * 0.1);
     addTaxDom.innerHTML = taxValue;
     const salesProfit = document.getElementById("profit");
-    const profitValue = inputValue - taxValue;
+    const profitValue = Math.floor(inputValue - taxValue);
     salesProfit.innerHTML = profitValue;
   })
 }
