@@ -1,7 +1,6 @@
 <div class="items-sell-contents">
   <header class="items-sell-header">
     <%= link_to image_tag('furima-logo-color.png' , size: '185x50'), "/" %>
-
   </header>
   <div class="items-sell-main">
     <h2 class="items-sell-title">商品の情報を入力</h2>
@@ -54,7 +53,7 @@
           <span class="indispensable">必須</span>
         </div>
         <%= f.collection_select(:status_id, Status.all, :id, :name, {}, {class:"select-box", id:"item-sales-status"}) %>
-      </div>:
+      </div>
     </div>
     <%# /商品の詳細 %>
 
