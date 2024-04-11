@@ -1,5 +1,5 @@
 class ItemsController < ApplicationController
-  before_action :login_check, except: [:index, :show, :destroy]
+  before_action :login_check, except: [:index, :show]
   before_action :set_item, except: [:index, :new, :create]
   before_action :contributor_confirmation, only: [:edit, :update, :destroy]
 
