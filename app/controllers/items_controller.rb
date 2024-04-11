@@ -1,5 +1,5 @@
 class ItemsController < ApplicationController
-  before_action :move_to_index, except: [:index, :show]
+  before_action :login_check, except: [:index, :show, :destroy]
   before_action :set_item, except: [:index, :new, :create]
   before_action :contributor_confirmation, only: [:edit, :update, :destroy]
 
@@ -37,6 +37,8 @@ class ItemsController < ApplicationController
   def destroy
     if @item.destroy
       redirect_to root_path
+    else
+      redirect_to root_path
     end
   end
 
@@ -46,7 +48,7 @@ class ItemsController < ApplicationController
     params.require(:item).permit(:image, :product, :product_description, :category_id, :status_id, :cost_id, :prefecture_id, :shipping_day_id, :price).merge(user_id: current_user.id)
   end
 
-  def move_to_index
+  def login_check
     unless user_signed_in?
       redirect_to new_user_session_path
     end
