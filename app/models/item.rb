@@ -11,7 +11,7 @@ class Item < ApplicationRecord
   validate :image_presence
 
   belongs_to :user
-  # has_one :order
+  has_one :order
   has_one_attached :image
 
   extend ActiveHash::Associations::ActiveRecordExtensions
