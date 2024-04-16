@@ -12,3 +12,4 @@ function cost() {
 }
 
 window.addEventListener('turbo:load', cost)
+window.addEventListener("turbo:render", cost);
