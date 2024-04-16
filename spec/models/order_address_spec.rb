@@ -6,11 +6,16 @@ RSpec.describe OrderAddress, type: :model do
     user = FactoryBot.create(:user)
     item = FactoryBot.create(:item)
     @order_address = FactoryBot.build(:order_address, user_id: user.id, item_id: item.id)
+
   end
 
   describe '商品購入機能' do
     context '商品が購入できる場合' do
       it 'postcodeとprefecture_idとcityとblock、phone_numberとtokenがあれば保存ができる' do
+        expect(@order_address).to be_valid
+      end
+      it 'buildingは空でも保存できる' do
+        @order_address.building = ''
         expect(@order_address).to be_valid
       end
     end
